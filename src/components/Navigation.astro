@@ -1,0 +1,31 @@
+---
+interface NavItem {
+    label: string;
+    href: string;
+    current?: boolean;
+}
+
+interface Props {
+    ariaLabel: string;
+    items: NavItem[];
+}
+
+const { ariaLabel, items } = Astro.props as Props;
+---
+
+<nav aria-label={ariaLabel}>
+    <ul>
+        {
+            items.map((item) => (
+                <li>
+                    <a
+                        aria-current={item.current ? "page" : undefined}
+                        href={item.href}
+                    >
+                        {item.label}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>
