@@ -1,5 +1,5 @@
 ---
-
+import Navigation from "../components/Navigation.astro";
 ---
 
 <html lang="en">
@@ -11,6 +11,19 @@
 		<title>Astro</title>
 	</head>
 	<body>
+		<header>
+			<Navigation
+				ariaLabel="Main Navigation"
+				items={[
+					{ label: "Home", href: "/", current: true },
+					{ label: "Shop", href: "/shop/" },
+					{ label: "Blog", href: "/blog/" },
+					{ label: "About", href: "/about/" },
+					{ label: "Contact", href: "/contact/" },
+				]}
+			/>
+		</header>
+
 		<h1>Astro</h1>
 	</body>
 </html>
