@@ -32,3 +32,27 @@ const { ariaLabel, items } = Astro.props as Props;
         }
     </ul>
 </nav>
+
+<script>
+    (function () {
+        const navigation = document.getElementById("navigation");
+        if (navigation === null) return;
+
+        const navigationItems = document.getElementById("navigation-items");
+        if (navigationItems === null) return;
+
+        const button = navigation.querySelector("button");
+        if (button === null) return;
+
+        button.addEventListener("click", () => {
+            const expanded = button.getAttribute("aria-expanded") === "true";
+            button.setAttribute("aria-expanded", String(!expanded));
+
+            if (expanded) {
+                navigationItems.setAttribute("hidden", "");
+            } else {
+                navigationItems.removeAttribute("hidden");
+            }
+        });
+    })();
+</script>
