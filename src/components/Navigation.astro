@@ -13,8 +13,11 @@ interface Props {
 const { ariaLabel, items } = Astro.props as Props;
 ---
 
-<nav aria-label={ariaLabel}>
-    <ul>
+<nav id="navigation" aria-label={ariaLabel}>
+    <button type="button" aria-controls="navigation-items" aria-expanded="true"
+        >Menu</button
+    >
+    <ul id="navigation-items">
         {
             items.map((item) => (
                 <li>
